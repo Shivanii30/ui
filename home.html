@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File Fetch - Send and Retrieve</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  
+  
+  <style>
+		body {
+			background-color: rgb(16, 8, 63);
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 10000px;
+      height: 850px;
+			margin: 0 auto;
+			background-color: #2d5757;
+			padding: 30px;
+			box-sizing: border-box;
+      border-radius: 20px; 
+      display: flex; 
+      flex-direction: column; 
+      margin-top: 50px;
+      margin-left: 50px;
+      margin-right: 50px;
+            margin-bottom: 50px;
+
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px); 
+		}
+
+       /* .container button:hover {
+			background-color: #3f3d5f; /* dark purple 
+			color: #fff; /* white 
+		} */
+
+
+		.navbar {
+      text-decoration: none;
+			color: #fff;
+      font-size: 35px;
+     /* overflow: hidden;*/
+		}
+
+      .navbar a:first-child {
+        font-family: "Times New Roman", serif; /* Change font family */
+        font-size: 50px; /* Change font size */
+        font-style: normal; 
+        font-family: "Allerta Stencil", Sans-serif;
+        float: left;
+ 
+		}
+
+		.navbar a {
+      float: right;
+      color: #fff;
+      font-family: 'Source Code Pro', monospace;
+      padding: 14px 16px;
+      text-decoration: none;
+    }  
+
+    .navbar a:hover {
+      color: #071e47; /* Change the link color on hover */
+      text-decoration: underline;
+    }  
+
+		.content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 20px;
+		}
+		.content img {
+			max-width: 50%;
+			height: auto;
+			margin-left: 20px;
+            float : right;
+		} 
+
+    .drag-file-button {
+    background-color: #1d6368; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Add padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it an inline element */
+    font-size: 26px; /* Set the font size */
+    border-radius: 5px; /* Round the corners */ 
+    position: absolute; 
+    right: 240px;
+    bottom: 90px;
+    height: 90px;
+    }    
+
+    /*.upload-button {
+    background-color: #295c40; /* Green background color 
+    color: white; 
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 26px; 
+    border-radius: 5px;
+    position: absolute; 
+    right: 400px;
+    bottom: 18px;
+    height: 50px; 
+    }*/
+    
+
+
+   .upload-button{
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  position: absolute; 
+    right: 400px;
+    bottom: 18px;
+    height: 50px; 
+}
+
+.upload-button{
+  background: rgb(39, 147, 151);
+  box-shadow: 0 0 25px rgb(0,140,255);
+}
+
+.upload-button:hover {
+  box-shadow: 0 0 5px rgb(0,140,255),
+              0 0 25px rgb(0,140,255),
+              0 0 50px rgb(0,140,255),
+              0 0 100px rgb(0,140,255);
+}
+
+
+
+    .heading {
+  position: absolute; /* Set the position to absolute */
+  right: 190px; /* Position it 20 pixels from the right edge */ 
+  top : 200px;
+  bottom : 80px;
+  font-family: 'Helvetica Neue', sans-serif; /* Set the font family */
+  font-size: 50px; /* Set the font size */
+  color: #ebd7d7; /* Set the text color */
+  text-align: right; /* Center the text */
+  margin-top: 20px; /* Add some space above the heading */
+}
+
+
+     
+
+</style>
+</head>
+
+
+<body>
+
+	<div class="container">
+
+		<div class="navbar">
+      <a href="#">File Fetch</a>
+			<a href="#">Contact</a>
+      <a href="#">About</a>
+			<a href="#">Features</a>
+			<a href="#">Home</a>
+		</div>
+
+    <h1 class="heading">Big Transfers, bigger impact</h1> 
+
+		<div class="content">
+			<img src="image.svg" alt="Image"> 
+		</div> 
+
+        <div class="Uploadd">
+            <button class="drag-file-button">Drag and Drop your Files or Browse</button>
+            <button class="upload-button">Upload File</button>
+          </div>
+          
+	</div>
+</body>
+</html>

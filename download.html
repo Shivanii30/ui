@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File Fetch - Send and Retrieve</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  
+	<style>
+		body {
+			background-color: rgb(16, 8, 63);
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 10000px;
+            height: 850px;
+			margin: 0 auto;
+			background-color: #2d5757;
+			padding: 30px;
+			box-sizing: border-box;
+            border-radius: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-bottom: 50px;
+
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px); 
+		}
+
+
+
+        svg {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        } 
+
+
+
+.button {
+  --width: 200px;
+
+  --height: 70px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color:#2d5757 ;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: var(--button-color);
+  position: relative;
+  text-align: center;
+  border-radius: 0.45em;
+  font-family: "Arial";
+  transition: background 0.3s;
+  top: 500px;
+  left : 800px;
+
+}
+
+.button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: var(--tooltip-color);
+  font-size: 0.9rem;
+  color: #111;
+  border-radius: .25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: var(--tooltip-color);
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after,.button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size :20px;
+}
+
+.button-wrapper,.text,.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text {
+  top: 0
+}
+
+.text,.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.button:hover {
+  background: rgb(16, 8, 63);
+}
+
+.button:hover .text {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+
+
+        .navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px;
+			color: #fff;
+            font-size: 35px;
+            font-style: italic;
+            right: 200px;
+		}
+
+        .navbar a:first-child {
+			font-family: "Times New Roman", serif; /* Change font family */
+			font-size: 50px; /* Change font size */
+            font-style: normal;
+		}
+
+		.navbar a {
+			color: #fff;
+			text-decoration: none;
+			margin: 0 10px;
+      font-family: 'Source Code Pro', monospace;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+		}
+
+        .navbar a:hover {
+  color: #071e47; /* Change the link color on hover */
+}
+		/*.content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 100px;
+		} */ 
+
+
+
+        .heading {
+  position: absolute; /* Set the position to absolute */
+  right: 190px; /* Position it 20 pixels from the right edge */ 
+  top : 200px;
+  bottom : 80px;
+  font-family: 'Helvetica Neue', sans-serif; /* Set the font family */
+  font-size: 50px; /* Set the font size */
+  color: #ebd7d7; /* Set the text color */
+  text-align: right; /* Center the text */
+  margin-top: 20px; /* Add some space above the heading */
+}
+
+
+     
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="navbar">
+            <a href="#">File Fetch</a>
+			<a href="#">Home</a>
+            <a href="#">Features</a>
+			<a href="#">About</a>
+			<a href="#">Contact</a>
+		</div>  
+
+        <svg width="500" height="500">
+            <image xlink:href="download.svg" width="100%" height="100%" />
+          </svg>
+
+          <div class="button" data-tooltip="Size: 20Mb">
+            <div class="button-wrapper">
+              <div class="text">Download</div>
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
+                </span>
+              </div>
+            </div>
+    </div>
+</body>
+</html>   
+          
+ 
